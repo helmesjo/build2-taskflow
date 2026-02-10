@@ -15,9 +15,10 @@ cxx{*}: extension = cpp
 #
 test.target = $cxx.target
 
-# From upstream (see ../taskflow/taskflow.hpp):
-config [bool] config.libtaskflow.task_pool       ?= true
-config [bool] config.libtaskflow.atomic_notifier ?= ($cxx.std >= 20)
+# From upstream (see upstream/CMakeLists.txt):
+config [bool] config.libtaskflow.disable_exception_handling ?= false
+config [bool] config.libtaskflow.task_pool                  ?= true
+config [bool] config.libtaskflow.atomic_notifier            ?= ($cxx.std >= 20)
 
 # Implied by upstream depending on feature requirements:
 config [bool] config.libtaskflow.cuda ?= false
