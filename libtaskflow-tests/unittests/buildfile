@@ -61,7 +61,7 @@ obje{~'/(test_cuda_.*)/'}: cu{~'/\1/'} libue{meta} $nvcc
   poptions = $regex.apply($cc.poptions $cxx.poptions $lib_poptions $cc.coptions $cxx.coptions, '\\', '/')
   std = $regex.apply($cxx.mode, '[-/]std[:=](.+)', '-std=\1', format_no_copy)
   mode = $regex.merge($cxx.mode, ' ', '.*', ',')
-  $path($nvcc) -rdc=false --expt-extended-lambda -x cu -Xcompiler=$mode \
+  $path($nvcc) -rdc=false --expt-extended-lambda -x cu -Xcompiler=$mode -allow-unsupported-compiler \
                $poptions $std -arch=native \
                -o $path($>) -c $path($<[0])
 }}
