@@ -20,7 +20,10 @@ lib{taskflow}:
     ($config.libtaskflow.disable_exception_handling ? -DTF_DISABLE_EXCEPTION_HANDLING :)
   cxx.export.libs = $intf_libs
 
-  libtaskflow.cuda = [bool] $config.libtaskflow.cuda
+  libtaskflow.disable_exception_handling = [bool] $config.libtaskflow.disable_exception_handling
+  libtaskflow.task_pool                  = [bool] $config.libtaskflow.task_pool
+  libtaskflow.atomic_notifier            = [bool] $config.libtaskflow.atomic_notifier
+  libtaskflow.cuda                       = [bool] $config.libtaskflow.cuda
 }
 
 if ($cxx.target.system != 'win32-msvc')

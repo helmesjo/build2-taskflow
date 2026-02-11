@@ -11,6 +11,7 @@ cu{*}: extension = cu
 exe{*}: test.arguments = --minimal
 
 # See upstream CMakeLists.txt for upstream-disabled tests.
+#
 for t: cxx{test_* \
             -test_serializer.cpp \
             -test_priorities.cpp \
@@ -25,18 +26,25 @@ for t: cxx{test_* \
   exe{$n}: hxx{doctest.h} $libs
 }
 
+exception_handling_enabled = (!$($taskflow: libtaskflow.disable_exception_handling))
+
+# Requires exception handling
+#
+exe{test_basics}:     test = $exception_handling_enabled
+exe{test_exceptions}: test = $exception_handling_enabled
+
 ## See upstream cuda/CMakeLists.txt for upstream-disabled tests.
 #
 for t: cuda/cu{test_* \
-                -test_cuda_capture \
-                -test_cuda_capturer_optimizer \
-                -test_cuda_find \
-                -test_cuda_kmeans \
-                -test_cuda_merge \
-                -test_cuda_min_max_element \
                 -test_cuda_reduce \
                 -test_cuda_scan \
-                -test_cuda_updates \
+                -test_cuda_find \
+                -test_cuda_min_max_element \
+                -test_cuda_merge \
+                -test_cuda_capturer_optimizer \
+                -test_cuda_capture \
+              } \
+        cuda/cu{cuda_* \
                 -cuda_algorithms \
                 -cuda_algorithm_updates \
               }
