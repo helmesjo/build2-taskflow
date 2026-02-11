@@ -13,7 +13,6 @@ exe{*}: test.arguments = --minimal
 # See upstream CMakeLists.txt for upstream-disabled tests.
 for t: cxx{test_* \
             -test_serializer.cpp \
-            -test_exceptions.cpp \
             -test_priorities.cpp \
             -test_deferred_pipelines.cpp \
             -test_deferred_scalable_pipelines.cpp \

@@ -1,2 +1,1 @@
 unittests/cuda symlink=dir
-unittests/sycl symlink=dir
