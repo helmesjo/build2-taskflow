@@ -17,4 +17,4 @@ depends: * bpkg >= 0.17.0
 
 depends: libtaskflow == $
 depends: doctest ^2.4.7
-depends: * cuda-nvcc ^12.8.0+4
+depends: * cuda-nvcc ^13.0.2+2

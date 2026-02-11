@@ -15,7 +15,6 @@ package-email: packaging@build2.org ; Mailing list.
 depends: * build2 >= 0.17.0
 depends: * bpkg >= 0.17.0
 
-depends: cuda-cudart ^12.8.0+4 ? ($config.libtaskflow.cuda)
+depends: cuda-cudart ^13.0.2+2 ? ($config.libtaskflow.cuda)
 
-requires: c++20 ? ($config.libtaskflow.atomic_notifier)
-requires: c++17 ? ($config.libtaskflow.cuda)
+requires: c++20
